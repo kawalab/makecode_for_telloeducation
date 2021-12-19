@@ -47,7 +47,7 @@ input.onGesture(Gesture.LogoUp, function () {
     basic.pause(100)
 })
 input.onGesture(Gesture.LogoDown, function () {
-    Tello.forward(50)
+    Tello.forward(10)
     basic.showLeds(`
         . . # . .
         . # # # .
