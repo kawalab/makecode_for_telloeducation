@@ -10,18 +10,18 @@ namespace Tello {
      */
     //% block="無線グループの設定を行う %value"
     //% group="設定"
-    export function radiosetgroup(value : number): void {
+    export function radiosetgroup(value: number): void {
         radio.setGroup(value)
     }
 
     /**
-     * 通信グループの設定を行う．受信機と送信機のグループ設定は合わせてね！
+     * スピードの設定を行う、10~100の間で設定する、1につき1cm進む！
      * @param スピードの設定を行う value 10-100, eg: 10
      */
     //% block="スピードを設定する %value"
     //% group="設定"
-    export function Setspped(value : number): void {
-         radio.sendString("speed " + value)
+    export function Setspped(value: number): void {
+        radio.sendString("speed=" + value)
     }
 
     /**
@@ -31,9 +31,9 @@ namespace Tello {
      */
     //% block="うえに上がる %value"
     //% group="初心者向け"
-    export function up(value : number): void {
+    export function up(value: number): void {
         if (flying == 1) {
-            radio.sendString("up " + value)
+            radio.sendString("up=" + value)
             flying = 1
         }
     }
@@ -45,9 +45,9 @@ namespace Tello {
      */
     //% block="したにさがる %value"
     //% group="初心者向け"
-    export function down(value : number): void {
+    export function down(value: number): void {
         if (flying == 1) {
-            radio.sendString("down " + value)
+            radio.sendString("down=" + value)
             flying = 1
         }
     }
@@ -59,9 +59,9 @@ namespace Tello {
      */
     //% block="まえにすすむ %value"
     //% group="初心者向け"
-    export function forward(value : number): void {
+    export function forward(value: number): void {
         if (flying == 1) {
-            radio.sendString("forward " + value)
+            radio.sendString("forward=" + value)
             flying = 1
         }
     }
@@ -73,9 +73,9 @@ namespace Tello {
      */
     //% block="うしろにさがる %value"
     //% group="初心者向け"
-    export function back(value : number): void {
+    export function back(value: number): void {
         if (flying == 1) {
-            radio.sendString("back " + value)
+            radio.sendString("back=" + value)
             flying = 1
         }
     }
@@ -87,9 +87,9 @@ namespace Tello {
      */
     //% block="ひだりにすすむ %value"
     //% group="初心者向け"
-    export function left(value : number): void {
+    export function left(value: number): void {
         if (flying == 1) {
-            radio.sendString("left " + value)
+            radio.sendString("left=" + value)
             flying = 1
         }
     }
@@ -101,9 +101,9 @@ namespace Tello {
      */
     //% block="みぎにすすむ %value"
     //% group="初心者向け"
-    export function right(value : number): void {
+    export function right(value: number): void {
         if (flying == 1) {
-            radio.sendString("right " + value)
+            radio.sendString("right=" + value)
             flying = 1
         }
     }
@@ -115,9 +115,9 @@ namespace Tello {
      */
     //% block="とけいまわり %value"
     //% group="初心者向け"
-    export function rotate_cw(value : number): void {
+    export function rotate_cw(value: number): void {
         if (flying == 1) {
-            radio.sendString("cw " + value)
+            radio.sendString("cw=" + value)
             flying = 1
         }
     }
@@ -129,9 +129,9 @@ namespace Tello {
      */
     //% block="はんとけいまわり %value"
     //% group="初心者向け"
-    export function rotate_ccw(value : number): void {
+    export function rotate_ccw(value: number): void {
         if (flying == 1) {
-            radio.sendString("ccw " + value)
+            radio.sendString("ccw=" + value)
             flying = 1
         }
     }
@@ -161,10 +161,10 @@ namespace Tello {
     */
     //% block="ドローンが飛行をしている"
     //% group="中級者向け"
-    export function getflying(): boolean{
-        if(flying == 1){
+    export function getflying(): boolean {
+        if (flying == 1) {
             return true
-        }else{
+        } else {
             return false
         }
     }
@@ -178,12 +178,12 @@ namespace Tello {
         if (flying == 0) {
             radio.sendString("takeoff")
             flying = 1
-        }else if(flying == 1){
+        } else if (flying == 1) {
             radio.sendString("land")
             flying = 0
         }
     }
-    
+
     /**
      * ラジコンモードで動作します．
      * かなり高難易度です．
@@ -194,9 +194,9 @@ namespace Tello {
      */
     //% block="RCモード | 左右 %a 前後 %b 上下 %c ヨー %d"
     //% group="上級者向け"
-    export function RCmode(a:number,b:number,c:number,d:number): void {
+    export function RCmode(a: number, b: number, c: number, d: number): void {
         if (flying == 1) {
-            let sendstring = "rc "+ a + " " + b + " " + c + " " + d
+            let sendstring = "rc=" + a + "=" + b + "=" + c + "=" + d
             radio.sendString(sendstring)
         }
     }
@@ -208,7 +208,7 @@ namespace Tello {
     //% group="フリップ"
     export function forward_flip(): void {
         if (flying == 1) {
-            radio.sendString("flip f")
+            radio.sendString("flip=f")
         }
     }
 
@@ -219,7 +219,7 @@ namespace Tello {
     //% group="フリップ"
     export function back_flip(): void {
         if (flying == 1) {
-            radio.sendString("flip b")
+            radio.sendString("flip=b")
         }
     }
 
@@ -230,7 +230,7 @@ namespace Tello {
     //% group="フリップ"
     export function left_flip(): void {
         if (flying == 1) {
-            radio.sendString("flip l")
+            radio.sendString("flip=l")
         }
     }
 
@@ -241,7 +241,34 @@ namespace Tello {
     //% group="フリップ"
     export function right_flip(): void {
         if (flying == 1) {
-            radio.sendString("flip r")
+            radio.sendString("flip=r")
+        }
+    }
+
+    /**
+    * ドローンがxyzで移動します
+    * @param x x -100-100, eg: 0
+    * @param y y -100-100, eg: 0
+    * @param z z -100-100, eg: 0
+    * @param speed speed -100-100, eg: 0
+    */
+    //% block="xyz | x %x y %y z %z speed %speed"
+    //% group="xyz移動"
+    export function xyz(x: number, y: number, z: number, speed: number): void {
+        if (flying == 1) {
+            let sendstring = "go=" + x + "=" + y + "=" + z + "=" + speed
+            radio.sendString(sendstring)
+        }
+    }
+
+    /**
+    * 電源AをONにする！
+    */
+    //% block="AをON"
+    //% group="電源をON"
+    export function energy_on_A(): void {
+        if (flying == 1) {
+            radio.sendString("energy_on_A")
         }
     }
 }
