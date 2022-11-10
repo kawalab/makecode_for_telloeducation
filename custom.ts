@@ -246,13 +246,13 @@ namespace Tello {
     }
 
     /**
-    * ドローンがxyzで移動します
+    * ドローンが三次元で移動します
     * @param x x -100-100, eg: 0
     * @param y y -100-100, eg: 0
     * @param z z -100-100, eg: 0
     * @param speed speed -100-100, eg: 0
     */
-    //% block="xyz | x %x y %y z %z speed %speed"
+    //% block="自由飛行 | 前後（前が＋） %x 上下（上が＋） %y 左右（左が＋） %z speed %speed"
     //% group="上級者向け"
     export function xyz(x: number, y: number, z: number, speed: number): void {
         if (flying == 1) {
