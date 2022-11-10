@@ -253,10 +253,10 @@ namespace Tello {
     * @param speed speed -100-100, eg: 0
     */
     //% block="xyz | x %x y %y z %z speed %speed"
-    //% group="xyz移動"
+    //% group="上級者向け"
     export function xyz(x: number, y: number, z: number, speed: number): void {
         if (flying == 1) {
-            let sendstring = "go=" + x + "=" + y + "=" + z + "=" + speed
+            let sendstring = "go=" + x + "=" + z + "=" + y + "=" + speed
             radio.sendString(sendstring)
         }
     }
@@ -264,11 +264,33 @@ namespace Tello {
     /**
     * 電源AをONにする！
     */
-    //% block="AをON"
-    //% group="電源をON"
+    //% block="電源AをON "
+    //% group="上級者向け"
     export function energy_on_A(): void {
         if (flying == 1) {
             radio.sendString("energy_on_A")
+        }
+    }
+
+    /**
+   * 電源BをONにする！
+   */
+    //% block="電源BをON "
+    //% group="上級者向け"
+    export function energy_on_B(): void {
+        if (flying == 1) {
+            radio.sendString("energy_on_B")
+        }
+    }
+
+    /**
+   * 電源CをONにする！
+   */
+    //% block="電源CをON "
+    //% group="上級者向け"
+    export function energy_on_C(): void {
+        if (flying == 1) {
+            radio.sendString("energy_on_C")
         }
     }
 }
