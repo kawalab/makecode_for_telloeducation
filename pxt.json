@@ -12,9 +12,7 @@
         "README.md",
         "custom.ts"
     ],
-    "testFiles": [
-        "test.ts"
-    ],
+    "testFiles": [],
     "targetVersions": {
         "target": "5.0.12",
         "targetId": "microbit"
