@@ -31,7 +31,7 @@ namespace Tello {
     //% block="送信間隔を設定する(ミリ秒) %value"
     //% group="設定"
     export function Setorder(value: number): void {
-        if(command_enable == 0){
+        if (command_enable == 0) {
             basic.pause(value)
             command_enable = 1
         }
@@ -163,7 +163,7 @@ namespace Tello {
     //% block="飛行を開始する"
     //% group="中級者向け"
     export function takeoff(): void {
-        if(command_enable == 1){
+        if (command_enable == 1) {
             radio.sendString("takeoff")
             flying = 1
             command_enable = 0
@@ -176,7 +176,7 @@ namespace Tello {
     //% block="着地をおこなう"
     //% group="中級者向け"
     export function land(): void {
-        if(command_enable == 1){
+        if (command_enable == 1) {
             radio.sendString("land")
             flying = 0
             command_enable = 0
